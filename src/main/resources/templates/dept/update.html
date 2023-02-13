@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/basic.html}"> <!-- 폴더명 바꿔주기 -->
+<div layout:fragment="content">
+
+<form action="/dept/update" method="post" th:object="${dept}">
+부서번호<input type="text" name="deptno" th:value="*{deptno}" readonly/>
+부서이름<input type="text" name="dname" th:value="*{dname}"/>
+지역<input type="text" name="loc" th:value="*{loc}"/>
+<input type="submit"/>
+</form>
+
+</div>
+<script layout:fragment="script" th:inline="javascript">
+	console.log("script")
+</script>

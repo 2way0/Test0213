@@ -1,0 +1,36 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body> -->
+<!-- 아래로 대체 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/basic.html}"> <!-- 폴더명 바꿔주기 -->
+<div layout:fragment="content">
+
+<table border="1">
+<tr>
+<th>부서번호</th>
+<th>부서이름</th>
+<th>지역</th>
+</tr>
+<tr th:each="dept : ${list}">
+<td><a th:href="@{/dept/update(deptno=${dept.deptno})}" th:text="${dept.deptno}"></a></td>
+<td th:text="${dept.dname}"></td>
+<td th:text="${dept.loc}"></td>
+<td><a th:href="@{/dept/delete(deptno=${dept.deptno})}">XXXXX</a></td>
+</tr>
+</table>
+
+<!-- </body>
+</html> -->
+
+<!-- 아래로 바꿈 -->
+</div>
+<script layout:fragment="script" th:inline="javascript">
+	console.log("script")
+</script>

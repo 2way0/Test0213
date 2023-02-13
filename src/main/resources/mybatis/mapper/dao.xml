@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 아래 <mapper> 추가한 것 -->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springboot.DeptDao">
+	
+	<select id="deptList" resultType="com.study.springboot.Dept">
+		select * from dept_temp
+	</select>
+	
+	<insert id="deptInsert">
+		insert into dept_temp(deptno, dname, loc)
+		values (#{deptno}, #{dname}, #{loc})
+	</insert>
+	
+	<select id="deptViewOne" resultType="com.study.springboot.Dept">
+		select * from dept_temp where deptno=#{deptno}
+	</select>
+	
+	<update id="deptUpdate">
+		update dept_temp set dname=#{dname}, loc=#{loc}
+		where deptno=#{deptno}
+	</update>
+
+	<delete id="deptDelete">
+		delete from dept_temp where deptno=#{deptno}
+	</delete>
+
+
+</mapper>
